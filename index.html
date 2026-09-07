@@ -8,272 +8,96 @@
         /* TEMA EMAS & BIRU TUA SIGNATURE BCA MOBILE */
         * { box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-tap-highlight-color: transparent; }
         body, html { margin: 0; padding: 0; width: 100vw; height: 100vh; background-color: #001D62; overflow: hidden; }
-        
+
         .mbca-gradient { background: linear-gradient(180deg, #002D62 0%, #001637 100%); }
         .mbca-blue { background-color: #00468C; }
         .text-bca-gold { color: #D4AF37; }
         .bg-bca-gold { background: linear-gradient(135deg, #FFDF00 0%, #D4AF37 100%); }
 
         /* CONTAINER LAYOUT UTAMA */
-        .app-frame { width: 100vw; height: 100vh; display: flex; flex-direction: column; position: relative; max-width: 450px; margin: 0 auto; background-color: #001637; }
-        
+        .app-frame { width: 100vw; height: 100vh; display: flex; flex-direction: column; position: relative; max-width: 450px; margin: 0 auto; background-color: #f1f5f9; }
+
         /* SCREEN 1: HALAMAN HOME LOGIN */
-        .screen-login { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; padding: 30px 20px; z-index: 10; justify-content: space-between; }
-        .login-header { text-align: center; margin-top: 20px; }
-        .logo-text { font-size: 55px; font-weight: 900; color: #fff; font-style: italic; letter-spacing: -2px; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.4); }
+        .screen-login { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; padding: 30px; box-sizing: border-box; }
+        .login-header { text-align: center; margin-top: 30px; }
+        .logo-text { font-size: 35px; font-weight: 900; color: #fff; font-style: italic; letter-spacing: -2px; margin: 0; }
         .logo-sub { color: #D4AF37; font-size: 11px; tracking-spacing: 2px; text-transform: uppercase; font-weight: bold; margin-top: -5px; }
-        
+
         /* MENU TOMBOL UTAMA m-BCA */
-        .login-menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; width: 100%; max-width: 360px; margin-top: -30px; }
-        .btn-menu-login { background: linear-gradient(135deg, #0056b3 0%, #002D62 100%); border: 2px solid #007bff; border-radius: 16px; padding: 18px 5px; text-align: center; cursor: pointer; color: white; box-shadow: 0 8px 16px rgba(0,0,0,0.3); position: relative; }
+        .login-menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; width: 100%; max-width: 360px; margin-top: 40px; }
+        .btn-menu-login { background: linear-gradient(135deg, #0056b3 0%, #002D62 100%); border: 2px solid #007bff; border-radius: 12px; padding: 15px 5px; text-align: center; cursor: pointer; transition: transform 0.1s; }
+        .btn-menu-login:active { transform: scale(0.95); }
         .btn-menu-login .icon-emoji { font-size: 28px; margin-bottom: 10px; display: block; }
-        .btn-menu-login span { font-size: 12px; font-weight: bold; display: block; }
-        
+        .btn-menu-login span { font-size: 12px; font-weight: bold; color: #fff; display: block; }
+
         /* LAMPU INDIKATOR KONEKSI */
         .ind-lamp { width: 14px; height: 14px; background-color: #22c55e; border-radius: 50%; position: absolute; top: 10px; right: 10px; box-shadow: 0 0 8px #22c55e; }
 
         /* FORM LOGIN POPUP */
-        .login-popup-box { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; padding: 20px; z-index: 50; }
-        .login-popup-card { background: white; border-radius: 16px; width: 100%; max-width: 320px; padding: 25px 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .popup-input { width: 100%; padding: 12px; border: 2px solid #cbd5e1; border-radius: 8px; font-size: 15px; outline: none; margin-bottom: 15px; font-weight: bold; text-align: center; background: #f8fafc; text-transform: uppercase; color: #333; }
-        .btn-popup-submit { width: 100%; background: #00468C; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 14px; cursor: pointer; }
+        .login-popup-box { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 100; }
+        .login-popup-card { background: white; border-radius: 15px; width: 90%; max-width: 320px; padding: 25px 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .popup-input { width: 100%; padding: 12px; margin-bottom: 12px; border: 2px solid #cbd5e1; border-radius: 8px; font-size: 15px; outline: none; text-align: center; font-weight: bold; }
+        .btn-popup-submit { width: 100%; padding: 12px; color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: bold; cursor: pointer; margin-top: 5px; }
 
         /* SCREEN 2: HALAMAN DASHBOARD INSIDE */
         .screen-dashboard { width: 100%; height: 100%; display: none; flex-direction: column; background-color: #f1f5f9; overflow: hidden; }
-        .dash-header { background: linear-gradient(90deg, #00337C 0%, #001F52 100%); color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .dash-header { background: linear-gradient(90deg, #00337C 0%, #001F52 100%); color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .dash-user-profile { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: bold; }
-        .dash-signal { display: flex; align-items: center; gap: 6px; font-size: 11px; background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 20px; }
+        .dash-signal { display: flex; align-items: center; gap: 6px; font-size: 11px; background: rgba(255,255,255,0.15); padding: 4px 10px; border-radius: 20px; }
         .signal-orange { width: 8px; height: 8px; background: #ea580c; border-radius: 50%; box-shadow: 0 0 6px #ea580c; }
 
         .dash-body-scroll { flex: 1; overflow-y: auto; padding: 15px 12px 100px 12px; }
 
         /* KARTU REKENING */
-        .mbca-card-balance { background: linear-gradient(135deg, #0a1128 0%, #1c2541 100%); color: white; padding: 20px; border-radius: 16px; box-shadow: 0 6px 15px rgba(0,0,0,0.15); margin-bottom: 20px; border-left: 5px solid #ea580c; }
-        .bl-label { font-size: 10px; text-transform: uppercase; color: #94a3b8; font-weight: bold; letter-spacing: 1px; margin: 0; }
-        .bl-amount { font-size: 28px; font-weight: 800; color: #ffffff; margin: 5px 0; }
+        .mbca-card-balance { background: linear-gradient(135deg, #0a1128 0%, #1c2541 100%); color: white; padding: 20px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); margin-bottom: 20px; }
+        .bl-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; font-weight: bold; margin-bottom: 4px; }
+        .bl-amount { font-size: 24px; font-weight: 800; color: #ffffff; margin: 5px 0; }
 
         /* MENU GRID FITUR */
-        .section-header-title { font-size: 13px; font-weight: 800; color: #1e293b; margin: 18px 0 10px 0; text-transform: uppercase; text-align: left; letter-spacing: 0.3px; }
+        .section-header-title { font-size: 13px; font-weight: 800; color: #1c293b; margin: 18px 0 10px 4px; text-transform: uppercase; letter-spacing: 0.5px; }
         .grid-dashboard-menu { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
-        .menu-icon-box { background: white; border-radius: 14px; padding: 12px 2px; text-align: center; cursor: pointer; border: 1px solid #e2e8f0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .menu-icon-box:active { background: #cbd5e1; transform: scale(0.95); }
-        .icon-circle-shape { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 6px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
-        .icon-title-lbl { font-size: 10px; font-weight: bold; color: #334155; }
+        .menu-icon-box { background: white; border-radius: 14px; padding: 12px 2px; text-align: center; cursor: pointer; border: 1px solid #e2e8f0; transition: transform 0.1s; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .menu-icon-box:active { transform: scale(0.95); }
+        .icon-circle-shape { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 8px; }
+        .icon-title-lbl { font-size: 10px; font-weight: bold; color: #334155; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%; padding: 0 2px; }
 
-        /* MULTIPLE BANNER PROMOSI (MEMBUAT TAMPILAN RAMAI) */
-        .banner-slider-box { border-radius: 14px; padding: 18px; color: white; margin-bottom: 12px; text-align: left; box-shadow: 0 4px 12px rgba(0,0,0,0.08); cursor: pointer; }
-        .bn-tag { background: #D4AF37; color: #001D62; font-size: 9px; font-weight: 900; padding: 2px 6px; border-radius: 4px; display: inline-block; text-transform: uppercase; }
+        /* MULTIPLE BANNER PROMO */
+        .banner-slider-box { border-radius: 14px; padding: 18px; color: white; margin-bottom: 12px; text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .bn-tag { background: #001D62; color: #D4AF37; font-size: 9px; font-weight: 900; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; display: inline-block; margin-bottom: 6px; }
 
         /* FIXED BOTTOM BAR */
-        .fixed-bottom-bar { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 450px; background: white; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-around; padding: 10px 0 14px 0; z-index: 40; }
-        .bar-btn-item { display: flex; flex-direction: column; align-items: center; color: #64748b; font-size: 11px; font-weight: bold; cursor: pointer; }
+        .fixed-bottom-bar { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 450px; background: white; border-top: 1px solid #e2e8f0; display: grid; grid-template-columns: repeat(4, 1fr); padding: 8px 0; box-shadow: 0 -4px 10px rgba(0,0,0,0.03); z-index: 90; }
+        .bar-btn-item { display: flex; flex-direction: column; align-items: center; justify-content: center; color: #64748b; font-size: 11px; font-weight: bold; cursor: pointer; text-decoration: none; }
         .bar-btn-item.active { color: #00337C; }
         .bar-btn-item .b-icon { font-size: 18px; margin-bottom: 3px; }
 
-        /* POP-UP MODAL DENGAN REDAKSI RESMI BANK */
-        .modal-blur-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); display: none; justify-content: center; align-items: center; padding: 20px; z-index: 99999; }
-        .modal-white-card { background: white; border-radius: 22px; padding: 28px 22px; width: 100%; max-width: 360px; text-align: center; }
-        .md-icon-success { width: 52px; height: 50px; background: #fff7ed; color: #ea580c; font-size: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px auto; font-weight: bold; }
-        .md-title { font-size: 18px; font-weight: bold; color: #1e293b; margin: 0 0 2px 0; }
-        .md-tag { background: #fff7ed; color: #c2410c; border: 1px solid #ffedd5; font-size: 10px; font-weight: bold; padding: 3px 14px; border-radius: 20px; display: inline-block; margin-bottom: 15px; letter-spacing: 0.5px; }
-        .md-text-body { font-size: 13px; color: #1e293b; line-height: 1.6; margin: 0 0 24px 0; text-align: justify; font-weight: 500; }
-        .md-action-btn { width: 100%; background: #00468C; color: white; border: none; padding: 14px; border-radius: 12px; font-weight: bold; font-size: 14px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,70,140,0.2); }
-    </style>
-</head>
-<body>
+        /* POP-UP MODAL GLOBAL */
+        .modal-blur-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); display: none; justify-content: center; align-items: center; z-index: 200; padding: 20px; }
+        .modal-white-card { background: white; border-radius: 22px; padding: 24px 20px; width: 100%; max-width: 360px; box-shadow: 0 20px 4px rgba(0,0,0,0.15); position: relative; }
+        .md-icon-success { width: 52px; height: 52px; background: #fff7ed; color: #ea580c; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; border: 1px solid #ffedd5; margin: 0 auto 12px auto; }
+        .md-title { font-size: 18px; font-weight: bold; color: #1e293b; margin: 0 0 10px 0; text-align: center; }
+        .md-tag { background: #fff7ed; color: #c2410c; border: 1px solid #ffedd5; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-bottom: 12px; }
+        .md-text-body { font-size: 13px; color: #1e293b; line-height: 1.6; margin: 0 0 24px 0; text-align: justify; }
+        .md-action-btn { width: 100%; background: #00468C; color: white; border: none; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .md-action-btn:hover { background: #002D62; }
 
-    <div class="app-frame mbca-gradient">
-
-        <!-- ==================== 1. SCREEN HOME LOGIN ==================== -->
-        <div id="loginPage" class="screen-login">
-            <div class="login-header">
-                <h1 class="logo-text">bca</h1>
-                <div class="logo-sub">mobile</div>
-            </div>
-
-            <div class="login-menu-grid">
-                <div class="btn-menu-login" onclick="openLoginPopup()">
-                    <div class="ind-lamp"></div>
-                    <span class="icon-emoji">📱</span>
-                    <span>m-BCA</span>
-                </div>
-                <div class="btn-menu-login" onclick="alert('Fitur KlikBCA membutuhkan token fisik.')">
-                    <span class="icon-emoji">🌐</span>
-                    <span>KlikBCA</span>
-                </div>
-                <div class="btn-menu-login" onclick="alert('Membuka Info BCA Layanan Pelanggan.')">
-                    <span class="icon-emoji">ℹ️</span>
-                    <span>Info BCA</span>
-                </div>
-                <div class="btn-menu-login" onclick="alert('Buka menu registrasi digital.')">
-                    <span class="icon-emoji">🆔</span>
-                    <span>Buka Akun</span>
-                </div>
-                <div class="btn-menu-login" onclick="alert('Menu Flazz Ganti Saldo.')">
-                    <span class="icon-emoji">💳</span>
-                    <span>Flazz</span>
-                </div>
-                <div class="btn-menu-login" onclick="alert('Layanan darurat HaloBCA call.')">
-                    <span class="icon-emoji">📞</span>
-                    <span>Halo BCA</span>
-                </div>
-            </div>
-            <p style="color: #64748b; font-size: 10px; font-weight: bold; margin-bottom: 10px;">Versi 4.2.1 &copy; PT Bank Central Asia Tbk.</p>
-        </div>
-
-        <div id="loginPopup" class="login-popup-box">
-            <div class="login-popup-card">
-                <h4 style="margin: 0 0 15px 0; color: #1e293b; font-weight: bold;">Masukkan Kode Akses</h4>
-
-                <div id="loginError" style="color: red; font-size: 11px; margin-bottom: 10px; display: none; font-weight: bold;">Kode Akses Salah!</div>
-                <input type="text" id="username" class="popup-input" placeholder="USERNAME (ijun)" maxlength="10">
-                <input type="password" id="password" class="popup-input" placeholder="KODE AKSES (123)" maxlength="6">
-                <div style="display: flex; gap: 10px;">
-                    <button onclick="closeLoginPopup()" class="btn-popup-submit" style="background:#64748b;">BATAL</button>
-                    <button onclick="handleLogin()" class="btn-popup-submit">LOGIN</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- SCREEN 2: DASHBOARD INSIDE -->
-        <div id="dashboardPage" class="screen-dashboard">
-            <nav class="dash-header">
-                <div class="dash-user-profile"><span>👤 Rekening: <span style="color:#f8fafc;">IJUN</span></span></div>
-                <div class="dash-signal"><div class="signal-orange"></div><span style="color:#ffedd5; font-weight:bold;">AKTIF</span><span onclick="handleLogout()" style="margin-left:10px; color:#ef4444; cursor:pointer;">❌</span></div>
-            </nav>
-
-            <div class="dash-body-scroll">
-                <div class="mbca-card-balance" onclick="showNotification('Status Rekening: Menunggu Konfirmasi Sektor Pusat')">
-                    <p class="bl-label">Nama Pemilik: IJUN</p>
-                    <h3 class="bl-amount">Rp 10.230.000</h3>
-                    <div style="display: flex; justify-content: space-between; font-size: 10px; color: #94a3b8; font-weight: bold; margin-top: 10px;">
-                        <span>No. Rek: 8830••••5521</span>
-                        <span style="color:#f97316; font-weight: 800; letter-spacing:0.3px;">RE-LOGIN AKSES (AKTIF)</span>
-                    </div>
-                </div>
-
-                <div class="section-header-title">Menu Utama m-BCA</div>
-                <div class="grid-dashboard-menu">
-                    <div class="menu-icon-box" onclick="showNotification('m-Info')">
-                        <div class="icon-circle-shape" style="background:#e0f2fe; color:#0284c7;">ℹ️</div>
-                        <span class="icon-title-lbl">m-Info</span>
-                    </div>
-                    <div class="menu-icon-box" onclick="showNotification('m-Transfer')">
-                        <div class="icon-circle-shape" style="background:#e0e7ff; color:#4f46e5;">💸</div>
-                        <span class="icon-title-lbl">m-Transfer</span>
-                    </div>
-                    <div class="menu-icon-box" onclick="showNotification('m-Payment')">
-                        <div class="icon-circle-shape" style="background:#fee2e2; color:#ef4444;">📄</div>
-                        <span class="icon-title-lbl">m-Payment</span>
-                    </div>
-                    <div class="menu-icon-box" onclick="showNotification('m-Commerce')">
-                        <div class="icon-circle-shape" style="background:#ffedd5; color:#ea580c;">🛍️</div>
-                        <span class="icon-title-lbl">m-Commerce</span>
-                    </div>
-                </div>
-
-                <div class="section-header-title">Fitur & Layanan Transaksi</div>
-                <div class="grid-dashboard-menu">
-                    <div class="menu-icon-box" onclick="showNotification('Setor Tunai')">
-                        <div class="icon-circle-shape" style="background:#dcfce7; color:#16a34a;">💵</div>
-                        <span class="icon-title-lbl">Setor Tunai</span>
-                    </div>
-                    <div class="menu-icon-box" onclick="showNotification('Tarik Tunai')">
-                        <div class="icon-circle-shape" style="background:#fef3c7; color:#d97706;">🏧</div>
-                        <span class="icon-title-lbl">Tarik Tunai</span>
-                    </div>
-                    <div class="menu-icon-box" onclick="showNotification('QRIS')">
-                        <div class="icon-circle-shape" style="background:#ccfbf1; color:#0d9488;">🔲</div>
-                        <span class="icon-title-lbl">QRIS</span>
-                    </div>
-                    <div class="menu-icon-box" onclick="showNotification('BagiBagi')">
-                        <div class="icon-circle-shape" style="background:#fae8ff; color:#d946ef;">🧧</div>
-                        <span class="icon-title-lbl">BagiBagi</span>
-                    </div>
-                </div>
-
-                <div class="section-header-title">Program & Promo Finansial</div>
-                
-                <div class="banner-slider-box" style="background: linear-gradient(135deg, #002D62 0%, #0056b3 100%);" onclick="showNotification('Promo Banner Cashback Kartu Kredit')">
-                    <span class="bn-tag">PROMO UTAMA</span>
-                    <div class="banner-title" style="font-weight:bold; font-size:14px; margin-top:4px;">BCA Reward & Cashback 10%</div>
-                    <p style="font-size:11px; opacity:0.8; margin:4px 0 0 0;">Dapatkan cashback belanja bulanan dan reward poin berlipat ganda di semua merchant kuliner pilihan.</p>
-                </div>
-
-                <div class="banner-slider-box" style="background: linear-gradient(135deg, #0f766e, #115e59);" onclick="showNotification('Promo KKB BCA Mobil Baru')">
-                    <span class="bn-tag" style="background:#99f6e4; color:#115e59;">KREDIT KENDARAAN</span>
-                    <div class="banner-title" style="font-weight:bold; font-size:14px; margin-top:4px;">KKB BCA: Suku Bunga Spesial</div>
-                    <p style="font-size:11px; opacity:0.8; margin:4px 0 0 0;">Wujudkan mobil impian Anda dengan angsuran ringan, DP rendah, dan proses persetujuan kilat.</p>
-                </div>
-
-                <div class="banner-slider-box" style="background: linear-gradient(135deg, #b45309, #78350f);" onclick="showNotification('Promo KPR BCA Rumah')">
-                    <span class="bn-tag" style="background:#fef3c7; color:#78350f;">KPR PROPERTY</span>
-                    <div class="banner-title" style="font-weight:bold; font-size:14px; margin-top:4px;">KPR BCA Angsuran Tetap</div>
-                    <p style="font-size:11px; opacity:0.8; margin:4px 0 0 0;">Suku bunga fixed berjangka untuk kepemilikan rumah baru maupun renovasi property keluarga Anda.</p>
-                </div>
-
-                <div class="banner-slider-box" style="background: linear-gradient(135deg, #6d28d9, #4c1d95);" onclick="showNotification('Promo BCA Paylater Aktif')">
-                    <span class="bn-tag" style="background:#ede9fe; color:#4c1d95;">BCA PAYLATER</span>
-                    <div class="banner-title" style="font-weight:bold; font-size:14px; margin-top:4px;">Solusi Belanja: Bayar Bulan Depan</div>
-                    <p style="font-size:11px; opacity:0.8; margin:4px 0 0 0;">Aktifkan fitur Paylater Anda melalui m-BCA dan nikmati promo cicilan bunga 0% hingga 3 bulan.</p>
-                </div>
-            </div>
-
-            <div class="fixed-bottom-bar">
-                <div class="bar-btn-item active" onclick="showNotification('Beranda Depan')"><span class="b-icon">🏠</span><span>Home</span></div>
-                <div class="bar-btn-item" onclick="showNotification('Kotak Masuk Pesan / Inbox')"><span class="b-icon">🔔</span><span>Notif</span></div>
-                <div class="bar-btn-item" onclick="showNotification('Scan Bayar Kamera QRIS')"><span class="b-icon">📷</span><span>QRIS</span></div>
-                <div class="bar-btn-item" onclick="showNotification('Layanan Pengaduan CS HaloBCA')"><span class="b-icon">📞</span><span>CS CS</span></div>
-            </div>
-        </div>
-
-        <div id="popupModal" class="modal-blur-overlay" onclick="closeModal()">
-            <div class="modal-white-card" onclick="event.stopPropagation()">
-                <div style="width: 52px; height: 50px; background: #fff7ed; color: #ea580c; font-size: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px auto; font-weight: bold;">!</div>
-                <div style="font-size: 18px; font-weight: bold; color: #1e293b; margin: 0 0 2px 0;">Pemberitahuan Sistem</div>
-                <div id="popupFeatureName" style="background: #fff7ed; color: #c2410c; border: 1px solid #ffedd5; font-size: 10px; font-weight: bold; padding: 3px 14px; border-radius: 20px; display: inline-block; margin-bottom: 15px; letter-spacing: 0.5px;">ID TRANSAKSI: #BCA-994821</div>
-                <p class="md-text-body" style="font-size: 13px; color: #1e293b; line-height: 1.6; margin: 0 0 24px 0; text-align: justify; font-weight: 500;">
-                    <strong>Pemberitahuan:</strong> Silahkan melakukan transaksi menggunakan akun resmi<strong>login akses</strong> silahkan izinkan persetujuan perangkat<br><br>Silahkan izinkan akses perangkat anda melalui akun resmi kamu,saat ini kamu sedang dapat melakukan transaksi segera setujui perangkat di akun utama BCA kamu.<br><br>Apabila Anda memerlukan aktivasi instan tanpa waktu tunggu, silakan kunjungi kantor cabang Bank BCA terdekat untuk memverifikasi kelayakan data fisik Anda. Terima kasih.
-                </p>
-                <button type="button" onclick="closeModal()" class="md-action-btn">Selesai & Lihat Saldo</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function openLoginPopup() { document.getElementById('loginPopup').style.display = 'flex'; }
-        function closeLoginPopup() { document.getElementById('loginPopup').style.display = 'none'; }
+        /* ==================================================== */
+        /* MODAL KHUSUS SYSTEM TRANSFER BARU (PROFESIONAL) */
+        /* ==================================================== */
+        .transfer-modal-card { background: #ffffff; border-radius: 20px; width: 100%; max-width: 400px; box-shadow: 0 15px 30px rgba(0,0,0,0.25); display: flex; flex-direction: column; overflow: hidden; border: 1px solid #e2e8f0; }
+        .transfer-modal-header { background: #00337C; color: white; padding: 18px 20px; font-size: 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+        .transfer-modal-body { padding: 20px; max-height: 75vh; overflow-y: auto; }
         
-        function handleLogin() {
-            var user = document.getElementById('username').value.trim();
-            var pass = document.getElementById('password').value;
-                        var errorBox = document.getElementById('loginError');
-
-            if (user === 'ijun' && pass === '123') {
-                errorBox.style.display = 'none';
-                closeLoginPopup();
-                document.getElementById('loginPage').style.display = 'none';
-                document.getElementById('dashboardPage').style.display = 'flex';
-                document.getElementById('popupFeatureName').innerText = 'ID TRANSAKSI: #BCA-994821';
-                document.getElementById('popupModal').style.display = 'flex';
-            } else {
-                errorBox.style.display = 'block';
-            }
-        }
-
-        function showNotification(featureName) {
-            document.getElementById('popupFeatureName').innerText = 'AKSES TERBATAS: ' + featureName;
-            document.getElementById('popupModal').style.display = 'flex';
-        }
-
-        function closeModal() { document.getElementById('popupModal').style.display = 'none'; }
+        .tf-form-group { margin-bottom: 16px; }
+        .tf-form-group label { display: block; font-size: 13px; font-weight: bold; color: #1e293b; margin-bottom: 6px; }
+        .tf-select, .tf-input { width: 100%; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 14px; outline: none; background: #f8fafc; transition: all 0.2s; }
+        .tf-select:focus, .tf-input:focus { border-color: #00468C; background: #fff; box-shadow: 0 0 0 3px rgba(0, 70, 140, 0.1); }
         
-        function handleLogout() {
-            document.getElementById('username').value = '';
-            document.getElementById('password').value = '';
-            document.getElementById('dashboardPage').style.display = 'none';
-            document.getElementById('loginPage').style.display = 'flex';
-        }
-    </script>
-</body>
-</html>
+        .tf-alert-danger { background: #fef2f2; border: 1px solid #fee2e2; color: #ef4444; padding: 12px; border-radius: 10px; font-size: 13px; font-weight: 500; margin-bottom: 16px; display: flex; align-items: center; gap: 6px; }
+        
+        .tf-btn-submit { width: 100%; padding: 14px; background: #00468C; color: white; border: none; border-radius: 10px; font-size: 15px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .tf-btn-submit:hover { background: #002D62; }
+        .tf-btn-cancel { width: 100%; padding: 12px; background: transparent; color: #64748b; border: none; border-radius: 10px; font-size: 14px; font-weight: 500; cursor: pointer; margin-top: 8px; }
+        .tf-btn-cancel:hover { background: #f1f5f9; color: #1e293b; }
+
+        /* STRUK RESI SUKSES */
