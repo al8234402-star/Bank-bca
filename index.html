@@ -101,3 +101,120 @@
         .tf-btn-cancel:hover { background: #f1f5f9; color: #1e293b; }
 
         /* STRUK RESI SUKSES */
+        <div id="dashboardPage" class="screen-dashboard">
+            <nav class="dash-header">
+                <div class="dash-user-profile">Selamat Datang, <span style="color:#10b981;">IJUN</span></div>
+                <div class="dash-signal"><div class="signal-orange"></div><span style="color:#ffedd5; font-weight:bold;">ANTENA UTAMA</span></div>
+            </nav>
+            <div class="dash-body-scroll">
+                <div class="mbca-card-balance" onclick="showNotification('Status Rekening')">
+                    <p class="bl-label">Nama Pemilik: IJUN</p>
+                    <h2 id="saldo-display-element" class="bl-amount">Rp 10.230.000</h2>
+                    <div style="display:flex; justify-content:space-between; font-size:10px; color:#94a3b8; font-weight:bold; margin-top:8px;">
+                        <span>No. Rek: 8830••••5521</span><span style="color:#10b981;">● RE-LOGIN AKSES</span>
+                    </div>
+                </div>
+                <div class="section-header-title">Menu Utama m-BCA</div>
+                <div class="grid-dashboard-menu">
+                    <div class="menu-icon-box" onclick="showNotification('m-Info')"><div class="icon-circle-shape" style="background:#e0f2fe; color:#0284c7;">ℹ️</div><span class="icon-title-lbl">m-Info</span></div>
+                    <div class="menu-icon-box" onclick="openTransferModal()"><div class="icon-circle-shape" style="background:#e0f2fe; color:#00468C;">💸</div><span class="icon-title-lbl">m-Transfer</span></div>
+                    <div class="menu-icon-box" onclick="showNotification('m-Payment')"><div class="icon-circle-shape" style="background:#fee2e2; color:#ef4444;">💳</div><span class="icon-title-lbl">m-Payment</span></div>
+                    <div class="menu-icon-box" onclick="showNotification('m-Commerce')"><div class="icon-circle-shape" style="background:#ffedd5; color:#ea580c;">🛍️</div><span class="icon-title-lbl">m-Commerce</span></div>
+                </div>
+                <div class="section-header-title">Fitur Transaksi</div>
+                <div class="grid-dashboard-menu">
+                    <div class="menu-icon-box" onclick="showNotification('Setor Tunai')"><div class="icon-circle-shape" style="background:#dcfce7; color:#16a34a;">💵</div><span class="icon-title-lbl">Setor</span></div>
+                    <div class="menu-icon-box" onclick="showNotification('Tarik Tunai')"><div class="icon-circle-shape" style="background:#fef9c3; color:#d97706;">🏧</div><span class="icon-title-lbl">Tarik</span></div>
+                    <div class="menu-icon-box" onclick="showNotification('QRIS')"><div class="icon-circle-shape" style="background:#ccfbf1; color:#0d9488;">🔳</div><span class="icon-title-lbl">QRIS</span></div>
+                    <div class="menu-icon-box" onclick="showNotification('BagiBagi')"><div class="icon-circle-shape" style="background:#fae8ff; color:#d946ef;">🧧</div><span class="icon-title-lbl">Bagi</span></div>
+                </div>
+            </div>
+            <div class="fixed-bottom-bar">
+                <div class="bar-btn-item active" onclick="showNotification('Beranda')">🏠Beranda</div>
+                <div class="bar-btn-item" onclick="showNotification('Inbox')">📩Inbox</div>
+                <div class="bar-btn-item" onclick="showNotification('QRIS')">📷QRIS</div>
+                <div class="bar-btn-item" onclick="showNotification('HaloBCA')">🛠️HaloBCA</div>
+            </div>
+        </div>
+        <div id="popupModal" class="modal-blur-overlay" onclick="closeModal()">
+            <div class="modal-white-card" onclick="event.stopPropagation()">
+                <div class="md-icon-success">⚠️</div><h3 class="md-title">Pemberitahuan Sistem</h3>
+                <div id="popupFeatureName" class="md-tag">AKSES TERBATAS</div>
+                <p class="md-text-body">Silakan gunakan akun resmi Anda.</p>
+                <button type="button" onclick="closeModal()" class="md-action-btn">Selesai</button>
+            </div>
+        </div>
+        <div id="transferModal" class="modal-blur-overlay">
+            <div class="transfer-modal-card">
+                <div class="transfer-modal-header"><span>Menu m-Transfer</span><span onclick="closeTransferModal()" style="cursor:pointer; font-size:20px;">&times;</span></div>
+                <div class="transfer-modal-body">
+                    <div id="tf-form-container">
+                        <div class="tf-form-group">
+                            <label for="tf-bank">Bank Tujuan</label>
+                            <select id="tf-bank" class="tf-select" onchange="handleBankValidation()">
+                                <option value="">-- Pilih Rekening Bank Tujuan --</option>
+                                <option value="CIMB Niaga">CIMB Niaga (Aktif)</option>
+                                <option value="UOB TMRW">UOB TMRW (Aktif)</option>
+                                <option value="Bank Sumut">Bank Sumut (Aktif)</option>
+                                <option value="BCA">BCA (Gangguan)</option>
+                                <option value="Mandiri">Mandiri (Gangguan)</option>
+                                <option value="BRI">BRI (Gangguan)</option>
+                                <option value="Bank Jago">Bank Jago (Gangguan)</option>
+                                <option value="Neobank">Neobank (Gangguan)</option>
+                                <option value="Aladin">Aladin (Gangguan)</option>
+                            </select>
+                        </div>
+                        <div id="tf-gangguan-alert" class="tf-alert-danger hidden">⚠️ Sistem bank sedang gangguan. Silakan pilih bank lain.</div>
+                        <div id="tf-input-fields" class="hidden">
+                            <div class="tf-form-group"><label for="tf-rek">Nomor Rekening</label><input type="number" id="tf-rek" class="tf-input" placeholder="Nomor rekening"></div>
+                            <div class="tf-form-group"><label for="tf-nama">Nama Penerima</label><input type="text" id="tf-nama" class="tf-input" placeholder="Nama pemilik rekening"></div>
+                            <div class="tf-form-group"><label for="tf-nominal">Jumlah Transfer (Rp)</label><input type="number" id="tf-nominal" class="tf-input" placeholder="Contoh: 50000"></div>
+                            <button class="tf-btn-submit" onclick="executeBankTransfer()">Kirim Dana</button>
+                        </div>
+                        <button class="tf-btn-cancel" onclick="closeTransferModal()">Batal</button>
+                    </div>
+                    <div id="tf-receipt-container" class="hidden">
+                        <div class="receipt-success-icon">✓</div><div class="receipt-success-title">Transfer Berhasil</div>
+                        <div class="receipt-dashed-line"></div>
+                        <div class="receipt-row"><span class="receipt-label">Bank</span><span id="rc-bank">-</span></div>
+                        <div class="receipt-row"><span class="receipt-label">No. Rek</span><span id="rc-rek">-</span></div>
+                        <div class="receipt-row"><span class="receipt-label">Penerima</span><span id="rc-nama">-</span></div>
+                        <div class="receipt-dashed-line"></div>
+                        <div class="receipt-row"><span class="receipt-label">Total Terpotong</span><span id="rc-nominal" class="receipt-value total">-</span></div>
+                        <div class="receipt-dashed-line"></div>
+                        <div class="history-section-card">
+                            <label style="font-size:12px; font-weight:bold; color:#00337C; text-transform:uppercase;">Riwayat Transaksi Terkini</label>
+                            <div id="tf-history-list" class="history-list-box"><div class="history-empty-state">Belum ada catatan transaksi.</div></div>
+                        </div>
+                        <div class="receipt-dashed-line"></div>
+                        <button class="tf-btn-submit" style="background:#10b981;" onclick="resetTransferFlow()">Selesai</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let totalSaldoBca = 10230000;
+        function formatMataUang(angka) { return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(angka); }
+        document.getElementById('saldo-display-element').innerText = formatMataUang(totalSaldoBca);
+        function openLoginPopup() { document.getElementById('loginPopupBox').style.display = 'flex'; }
+        function closeLoginPopup() { document.getElementById('loginPopupBox').style.display = 'none'; }
+        function handleLogin() {
+            var user = document.getElementById('username').value.trim();
+            var pass = document.getElementById('password').value.trim();
+            if (user === 'ijun' && pass === '123') {
+                closeLoginPopup();
+                document.getElementById('loginPage').style.display = 'none';
+                document.getElementById('dashboardPage').style.display = 'flex';
+            } else { document.getElementById('loginError').style.display = 'block'; }
+        }
+        function showNotification(name) { document.getElementById('popupFeatureName').innerText = name; document.getElementById('popupModal').style.display = 'flex'; }
+        function closeModal() { document.getElementById('popupModal').style.display = 'none'; }
+        function openTransferModal() { document.getElementById('transferModal').style.display = 'flex'; resetTransferFlow(); }
+        function closeTransferModal() { document.getElementById('transferModal').style.display = 'none'; }
+        function handleBankValidation() {
+            const bank = document.getElementById('tf-bank').value;
+            const active = ["CIMB Niaga", "UOB TMRW", "Bank Sumut"];
+            if (bank === "") return;
+            if (active.includes(bank)) {
+        
